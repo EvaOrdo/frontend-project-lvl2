@@ -2,7 +2,7 @@
   "name": "frontend-project-lvl2",
   "version": "1.0.0",
   "description": "Second Hexlet project",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -26,10 +26,11 @@
   },
   "homepage": "https://github.com/EvaOrdo/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^4.1.1"
+    "commander": "^4.1.1",
+    "lodash": "^4.17.15"
   },
   "bin": {
-    "gendiff": "dist/gendiff.js"
+    "gendiff": "dist/bin/gendiff.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
