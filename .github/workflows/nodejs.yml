@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [13.x, 14.x]
+        node-version: [13.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,11 +27,11 @@ jobs:
     - name: npm install, build
       run: |
         make install
+        make build
       env:
         CI: true
     - name: Run linter
-      run: |
-        make lint
+      run: make lint
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v2.4.0
       env:
