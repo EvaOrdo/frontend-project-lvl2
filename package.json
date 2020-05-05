@@ -6,8 +6,13 @@
   "files": [
     "dist"
   ],
+  "type": "module",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx -n --experimental-vm-modules jest"
   },
   "engines": {
     "node": ">=13"
@@ -26,20 +31,18 @@
   },
   "homepage": "https://github.com/EvaOrdo/frontend-project-lvl2#readme",
   "dependencies": {
+    "@jest/globals": "^26.0.1",
     "commander": "^4.1.1",
     "lodash": "^4.17.15"
   },
   "bin": {
-    "gendiff": "dist/bin/gendiff.js"
+    "gendiff": "src/bin/gendiff.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-proposal-pipeline-operator": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1"
   }
 }
