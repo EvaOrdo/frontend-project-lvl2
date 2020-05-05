@@ -1,23 +1,17 @@
-  plugins: [
-    jest
-  ]
+---
+
+plugins:
+  - jest
   
-  env: {
-    node: true,
-  }
+env:
+  node: true
 
-  extends: [
-    'airbnb-base',
-    'plugin:jest/recommended',
-  ]
+extends:
+  - 'airbnb-base'
+  - 'plugin:jest/recommended'
 
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  }
+rules:
+  no-console: 0
+  import/extensions: 0 
 
-  rules: {
-    no-console: 0,
-    import/extensions: 0
-  }
 
