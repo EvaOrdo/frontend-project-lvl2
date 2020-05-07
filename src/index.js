@@ -1,11 +1,6 @@
-import fs from 'fs';
+import parseFile from './parsers.js';
 
-const genDiff = (firstPath, secondPath) => {
-  const firstFile = fs.readFileSync(firstPath);
-  const secondFile = fs.readFileSync(secondPath);
-  const obj1 = JSON.parse(firstFile);
-  const obj2 = JSON.parse(secondFile);
-
+const compareObjects = (obj1, obj2) => {
   const result = [];
   Object.keys(obj1).forEach((key) => {
     if (key in obj2) {
@@ -24,6 +19,13 @@ const genDiff = (firstPath, secondPath) => {
     }
   });
   return `{\n${result.join('\n')}\n}`;
+};
+
+const genDiff = (firstPath, secondPath) => {
+  const firstFile = parseFile(firstPath);
+  const secondFile = parseFile(secondPath);
+
+  return compareObjects(firstFile, secondFile);
 };
 
 export default genDiff;
