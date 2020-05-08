@@ -9,3 +9,7 @@ test('gendiff flat json files', () => {
 test('gendiff flat yml files', () => {
   expect(genDiff('__fixtures__/before.yml', '__fixtures__/after.yml')).toEqual(fs.readFileSync('__fixtures__/expected.txt', 'utf-8').trim());
 });
+
+test('gendiff flat ini files', () => {
+  expect(genDiff('__fixtures__/before.ini', '__fixtures__/after.ini')).toEqual(fs.readFileSync('__fixtures__/expected.txt', 'utf-8').trim());
+});
