@@ -13,3 +13,7 @@ test('gendiff flat yml files', () => {
 test('gendiff flat ini files', () => {
   expect(genDiff('__fixtures__/before.ini', '__fixtures__/after.ini')).toEqual(fs.readFileSync('__fixtures__/expected.txt', 'utf-8').trim());
 });
+
+test('gendiff tree json files', () => {
+  expect(genDiff('__fixtures__/before_tree.json', '__fixtures__/after_tree.json')).toEqual(fs.readFileSync('__fixtures__/expected_tree.txt', 'utf-8').trim());
+});
