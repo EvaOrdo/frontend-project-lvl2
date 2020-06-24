@@ -13,6 +13,10 @@ Example of comparing ini and yml formats:
 
 <a href="https://asciinema.org/a/342262" target="_blank"><img src="https://asciinema.org/a/342262.svg" /></a>
 
-Expample of comparing json files with nested structure:
+Example of comparing json files with nested structure:
 
 <a href="https://asciinema.org/a/342269" target="_blank"><img src="https://asciinema.org/a/342269.svg" /></a>
+
+Example of comparing ini files with plain formatter:
+
+<a href="https://asciinema.org/a/342826" target="_blank"><img src="https://asciinema.org/a/342826.svg" /></a>
