@@ -5,3 +5,14 @@
 <a href="https://codeclimate.com/github/EvaOrdo/frontend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/f1bc45239bf93e3e5c15/test_coverage" /></a>
 
 ### Compares two configuration files and shows a difference
+
+Example of comparing two json files:
+
+<a href="https://asciinema.org/a/342270" target="_blank"><img src="https://asciinema.org/a/342270.svg" /></a>
+Example of comparing ini and yml formats:
+
+<a href="https://asciinema.org/a/342262" target="_blank"><img src="https://asciinema.org/a/342262.svg" /></a>
+
+Expample of comparing json files with nested structure:
+
+<a href="https://asciinema.org/a/342269" target="_blank"><img src="https://asciinema.org/a/342269.svg" /></a>
