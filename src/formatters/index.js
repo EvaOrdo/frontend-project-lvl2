@@ -1,8 +1,11 @@
 import recursiveFormat from './stylish.js';
 import plainFormat from './plain.js';
+import jsonFormat from './json.js';
 
 const chooseFormatter = (tree, format) => {
   switch (format) {
+    case 'json':
+      return jsonFormat(tree);
     case 'plain':
       return plainFormat(tree);
     case 'recursive':
