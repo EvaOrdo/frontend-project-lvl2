@@ -6,12 +6,9 @@
 
 ### Compares two configuration files and shows a difference
 
-Example of comparing two json files:
+Example of comparing flat json, ini, yml files:
 
-<a href="https://asciinema.org/a/342270" target="_blank"><img src="https://asciinema.org/a/342270.svg" /></a>
-Example of comparing ini and yml formats:
-
-<a href="https://asciinema.org/a/342262" target="_blank"><img src="https://asciinema.org/a/342262.svg" /></a>
+<a href="https://asciinema.org/a/343146" target="_blank"><img src="https://asciinema.org/a/343146.svg" /></a>
 
 Example of comparing json files with nested structure:
 
