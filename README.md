@@ -10,10 +10,14 @@ Example of comparing flat json, ini, yml files:
 
 <a href="https://asciinema.org/a/343146" target="_blank"><img src="https://asciinema.org/a/343146.svg" /></a>
 
-Example of comparing json files with nested structure:
+Example of comparing json files with nested structure (recursive formatter):
 
-<a href="https://asciinema.org/a/342269" target="_blank"><img src="https://asciinema.org/a/342269.svg" /></a>
+<a href="https://asciinema.org/a/343456" target="_blank"><img src="https://asciinema.org/a/343456.svg" /></a>
 
-Example of comparing ini files with plain formatter:
+Example of comparing yml and ini files with nested structure (plain formatter):
 
-<a href="https://asciinema.org/a/342826" target="_blank"><img src="https://asciinema.org/a/342826.svg" /></a>
+<a href="https://asciinema.org/a/343459" target="_blank"><img src="https://asciinema.org/a/343459.svg" /></a>
+
+Example of comparing json, yml and ini files (json formatter):
+
+<a href="https://asciinema.org/a/343460" target="_blank"><img src="https://asciinema.org/a/343460.svg" /></a>
