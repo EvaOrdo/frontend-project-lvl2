@@ -16,7 +16,7 @@ const jsonFormat = (ast) => {
         case 'ancestor':
           return { kye: key, status: 'ancestor', children: iter(val1) };
         default:
-          return false;
+          throw new Error(`Unknown status: '${status}'!`);
       }
     });
     return result;

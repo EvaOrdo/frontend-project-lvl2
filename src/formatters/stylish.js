@@ -26,7 +26,7 @@ const recursiveFormat = (ast) => {
         case 'ancestor':
           return `${space.repeat(depth)}  ${key}: {\n${iter(val1, depth + 2).join('\n')}\n${space.repeat(depth)}${space}}`;
         default:
-          return false;
+          throw new Error(`Unknown status: '${status}'!`);
       }
     });
     return result;

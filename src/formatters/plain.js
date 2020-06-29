@@ -10,9 +10,9 @@ const renderVal = (val) => {
 const plainFormat = (ast) => {
   const iter = (tree, accum) => {
     const result = tree.map((node) => {
-      const [type, key, val1, val2] = node;
+      const [status, key, val1, val2] = node;
       let newAcc;
-      switch (type) {
+      switch (status) {
         case 'added':
           newAcc = `${accum}${key}`;
           return `Property '${newAcc}' was added with value: ${renderVal(val1)}`;
@@ -26,7 +26,7 @@ const plainFormat = (ast) => {
           newAcc = `${accum}${key}.`;
           return iter(val1, newAcc);
         default:
-          return undefined;
+          throw new Error(`Unknown status: '${status}'!`);
       }
     });
     return result.filter((elem) => elem !== undefined).join('\n');
