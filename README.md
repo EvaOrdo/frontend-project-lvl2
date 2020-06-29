@@ -6,17 +6,18 @@
 
 ### Compares two configuration files and shows a difference
 
-Example of comparing two json files:
+Example of comparing flat json, ini, yml files:
 
-<a href="https://asciinema.org/a/342270" target="_blank"><img src="https://asciinema.org/a/342270.svg" /></a>
-Example of comparing ini and yml formats:
+<a href="https://asciinema.org/a/343146" target="_blank"><img src="https://asciinema.org/a/343146.svg" /></a>
 
-<a href="https://asciinema.org/a/342262" target="_blank"><img src="https://asciinema.org/a/342262.svg" /></a>
+Example of comparing json files with nested structure (recursive formatter):
 
-Example of comparing json files with nested structure:
+<a href="https://asciinema.org/a/343456" target="_blank"><img src="https://asciinema.org/a/343456.svg" /></a>
 
-<a href="https://asciinema.org/a/342269" target="_blank"><img src="https://asciinema.org/a/342269.svg" /></a>
+Example of comparing yml and ini files with nested structure (plain formatter):
 
-Example of comparing ini files with plain formatter:
+<a href="https://asciinema.org/a/343459" target="_blank"><img src="https://asciinema.org/a/343459.svg" /></a>
 
-<a href="https://asciinema.org/a/342826" target="_blank"><img src="https://asciinema.org/a/342826.svg" /></a>
+Example of comparing json, yml and ini files (json formatter):
+
+<a href="https://asciinema.org/a/343460" target="_blank"><img src="https://asciinema.org/a/343460.svg" /></a>
