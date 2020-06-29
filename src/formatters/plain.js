@@ -26,7 +26,7 @@ const plainFormat = (ast) => {
           newAcc = `${accum}${key}.`;
           return iter(val1, newAcc);
         default:
-          throw new Error(`Unknown status: '${status}'!`);
+          return undefined;
       }
     });
     return result.filter((elem) => elem !== undefined).join('\n');
