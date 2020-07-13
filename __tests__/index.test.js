@@ -1,21 +1,28 @@
-import { test, expect } from '@jest/globals';
+import { test, expect, beforeAll } from '@jest/globals';
 import fs from 'fs';
 import genDiff from '../src/index.js';
+import path from 'path';
 
-test('gendif recursive format', () => {
-  expect(genDiff('__fixtures__/before.json', '__fixtures__/after.json')).toEqual(fs.readFileSync('__fixtures__/recursive.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.yml', '__fixtures__/after.yml')).toEqual(fs.readFileSync('__fixtures__/recursive.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.ini', '__fixtures__/after.ini')).toEqual(fs.readFileSync('__fixtures__/recursive.txt', 'utf-8').trim());
+const __dirname = path.resolve();
+const pathToFile = (filename) => path.join(__dirname, '__fixtures__', filename);
+const getData = (filename) => fs.readFileSync(pathToFile(filename), 'utf-8').trim();
+
+let recursive;
+let plain;
+let json;
+
+beforeAll(() => {
+  recursive = getData('recursive.txt');
+  plain = getData('plain.txt');
+  json = getData('json.txt');
 });
 
-test('gendiff plain format', () => {
-  expect(genDiff('__fixtures__/before.json', '__fixtures__/after.json', 'plain')).toEqual(fs.readFileSync('__fixtures__/plain.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.yml', '__fixtures__/after.yml', 'plain')).toEqual(fs.readFileSync('__fixtures__/plain.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.ini', '__fixtures__/after.ini', 'plain')).toEqual(fs.readFileSync('__fixtures__/plain.txt', 'utf-8').trim());
-});
-
-test('gendiff json format', () => {
-  expect(genDiff('__fixtures__/before.json', '__fixtures__/after.json', 'json')).toEqual(fs.readFileSync('__fixtures__/json.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.yml', '__fixtures__/after.yml', 'json')).toEqual(fs.readFileSync('__fixtures__/json.txt', 'utf-8').trim());
-  expect(genDiff('__fixtures__/before.ini', '__fixtures__/after.ini', 'json')).toEqual(fs.readFileSync('__fixtures__/json.txt', 'utf-8').trim());
+test.each([
+  ['__fixtures__/before.json', '__fixtures__/after.json'], 
+  ['__fixtures__/before.yml', '__fixtures__/after.yml'], 
+  ['__fixtures__/before.ini', '__fixtures__/after.ini']
+])('gendiff with each formats', (first, second) => {
+  expect(genDiff(first, second)).toEqual(recursive);
+  expect(genDiff(first, second, 'plain')).toEqual(plain);
+  expect(genDiff(first, second, 'json')).toEqual(json);
 });
