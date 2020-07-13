@@ -1,19 +1,18 @@
 import yaml from 'js-yaml';
 import ini from 'ini';
-import fs from 'fs';
-import path from 'path';
 
-export default (filepath) => {
-  const format = path.extname(filepath);
-  const data = fs.readFileSync(filepath, 'utf8');
-  switch (format) {
+
+export default (data, extencion) => {
+  switch (extencion) {
     case '.json':
       return JSON.parse(data);
     case '.yml':
       return yaml.safeLoad(data);
+    case '.yaml':
+      return yaml.safeLoad(data);
     case '.ini':
       return ini.parse(data);
     default:
-      throw new Error(`Unknown format: '${format}'!`);
+      throw new Error(`Unknown format: '${extencion}'!`);
   }
 };
