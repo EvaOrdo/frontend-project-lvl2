@@ -1,10 +1,9 @@
 import { test, expect, beforeAll } from '@jest/globals';
 import fs from 'fs';
-import genDiff from '../src/index.js';
 import path from 'path';
+import genDiff from '../src/index.js';
 
-const __dirname = path.resolve();
-const pathToFile = (filename) => path.join(__dirname, '__fixtures__', filename);
+const pathToFile = (filename) => path.join(path.resolve(), '__fixtures__', filename);
 const getData = (filename) => fs.readFileSync(pathToFile(filename), 'utf-8').trim();
 
 let recursive;
@@ -18,9 +17,9 @@ beforeAll(() => {
 });
 
 test.each([
-  ['__fixtures__/before.json', '__fixtures__/after.json'], 
-  ['__fixtures__/before.yml', '__fixtures__/after.yml'], 
-  ['__fixtures__/before.ini', '__fixtures__/after.ini']
+  ['__fixtures__/before.json', '__fixtures__/after.json'],
+  ['__fixtures__/before.yml', '__fixtures__/after.yml'],
+  ['__fixtures__/before.ini', '__fixtures__/after.ini'],
 ])('gendiff with each formats', (first, second) => {
   expect(genDiff(first, second)).toEqual(recursive);
   expect(genDiff(first, second, 'plain')).toEqual(plain);
