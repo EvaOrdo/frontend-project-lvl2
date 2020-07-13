@@ -10,7 +10,9 @@ const renderVal = (val) => {
 const plainFormat = (ast) => {
   const iter = (tree, accum) => {
     const result = tree.map((node) => {
-      const [status, key, val1, val2] = node;
+      const {
+        status, key, val1, val2, children,
+      } = node;
       let newAcc;
       switch (status) {
         case 'added':
@@ -24,7 +26,7 @@ const plainFormat = (ast) => {
           return `Property '${newAcc}' was changed from ${renderVal(val1)} to ${renderVal(val2)}`;
         case 'ancestor':
           newAcc = `${accum}${key}.`;
-          return iter(val1, newAcc);
+          return iter(children, newAcc);
         default:
           return undefined;
       }

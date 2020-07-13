@@ -12,7 +12,9 @@ const renderVal = (value, depth) => {
 const recursiveFormat = (ast) => {
   const iter = (tree, depth) => {
     const result = tree.map((node) => {
-      const [status, key, val1, val2] = node;
+      const {
+        status, key, val1, val2, children,
+      } = node;
       const space = '  ';
       switch (status) {
         case 'unchanged':
@@ -24,7 +26,7 @@ const recursiveFormat = (ast) => {
         case 'changed':
           return `${space.repeat(depth)}- ${key}: ${renderVal(val1, depth)}\n${space.repeat(depth)}+ ${key}: ${renderVal(val2, depth)}`;
         case 'ancestor':
-          return `${space.repeat(depth)}  ${key}: {\n${iter(val1, depth + 2).join('\n')}\n${space.repeat(depth)}${space}}`;
+          return `${space.repeat(depth)}  ${key}: {\n${iter(children, depth + 2).join('\n')}\n${space.repeat(depth)}${space}}`;
         default:
           throw new Error(`Unknown status: '${status}'!`);
       }
