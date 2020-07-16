@@ -17,10 +17,12 @@ beforeAll(() => {
 });
 
 test.each([
-  ['__fixtures__/before.json', '__fixtures__/after.json'],
-  ['__fixtures__/before.yml', '__fixtures__/after.yml'],
-  ['__fixtures__/before.ini', '__fixtures__/after.ini'],
-])('gendiff with each formats', (first, second) => {
+  ['.json'],
+  ['.yml'],
+  ['.ini'],
+])('gendiff with each formats', (ext) => {
+  const first = pathToFile(`before${ext}`);
+  const second = pathToFile(`after${ext}`);
   expect(genDiff(first, second)).toEqual(recursive);
   expect(genDiff(first, second, 'plain')).toEqual(plain);
   expect(genDiff(first, second, 'json')).toEqual(json);
