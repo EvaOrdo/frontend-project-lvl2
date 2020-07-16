@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-const renderVal = (val) => {
-  if (!_.isObject(val)) {
-    return _.isString(val) ? `'${val}'` : val;
+const renderValue = (value) => {
+  if (!_.isObject(value)) {
+    return _.isString(value) ? `'${value}'` : value;
   }
   return '[complex value]';
 };
@@ -11,29 +11,27 @@ const plainFormat = (ast) => {
   const iter = (tree, accum) => {
     const result = tree.map((node) => {
       const {
-        status, key, val1, val2, children,
+        status, key, value1, value2, children,
       } = node;
-      let newAcc;
+      const propName = [...accum, key].join('.');
       switch (status) {
         case 'added':
-          newAcc = `${accum}${key}`;
-          return `Property '${newAcc}' was added with value: ${renderVal(val1)}`;
+          return `Property '${propName}' was added with value: ${renderValue(value1)}`;
         case 'removed':
-          newAcc = `${accum}${key}`;
-          return `Property '${newAcc}' was deleted`;
+          return `Property '${propName}' was deleted`;
         case 'changed':
-          newAcc = `${accum}${key}`;
-          return `Property '${newAcc}' was changed from ${renderVal(val1)} to ${renderVal(val2)}`;
+          return `Property '${propName}' was changed from ${renderValue(value1)} to ${renderValue(value2)}`;
         case 'ancestor':
-          newAcc = `${accum}${key}.`;
-          return iter(children, newAcc);
-        default:
+          return iter(children, [...accum, key]);
+        case 'unchanged':
           return undefined;
+        default:
+          throw new Error(`Unknown status: '${status}'!`);
       }
     });
-    return result.filter((elem) => elem !== undefined).join('\n');
+    return result.filter((item) => item !== undefined).join('\n');
   };
-  return iter(ast, '');
+  return iter(ast, []);
 };
 
 export default plainFormat;
