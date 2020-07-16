@@ -2,8 +2,8 @@ import yaml from 'js-yaml';
 import ini from 'ini';
 
 
-export default (data, extencion) => {
-  switch (extencion) {
+export default (data, extension) => {
+  switch (extension) {
     case '.json':
       return JSON.parse(data);
     case '.yml':
@@ -13,6 +13,6 @@ export default (data, extencion) => {
     case '.ini':
       return ini.parse(data);
     default:
-      throw new Error(`Unknown format: '${extencion}'!`);
+      throw new Error(`Unknown format: '${extension}'!`);
   }
 };

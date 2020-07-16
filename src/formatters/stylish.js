@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const renderVal = (value, depth) => {
+const renderValue = (value, depth) => {
   if (!_.isObject(value)) {
     return value;
   }
@@ -13,18 +13,18 @@ const recursiveFormat = (ast) => {
   const iter = (tree, depth) => {
     const result = tree.map((node) => {
       const {
-        status, key, val1, val2, children,
+        status, key, value1, value2, children,
       } = node;
       const space = '  ';
       switch (status) {
         case 'unchanged':
-          return `${space.repeat(depth)}  ${key}: ${renderVal(val1, depth)}`;
+          return `${space.repeat(depth)}  ${key}: ${renderValue(value1, depth)}`;
         case 'added':
-          return `${space.repeat(depth)}+ ${key}: ${renderVal(val1, depth)}`;
+          return `${space.repeat(depth)}+ ${key}: ${renderValue(value1, depth)}`;
         case 'removed':
-          return `${space.repeat(depth)}- ${key}: ${renderVal(val1, depth)}`;
+          return `${space.repeat(depth)}- ${key}: ${renderValue(value1, depth)}`;
         case 'changed':
-          return `${space.repeat(depth)}- ${key}: ${renderVal(val1, depth)}\n${space.repeat(depth)}+ ${key}: ${renderVal(val2, depth)}`;
+          return `${space.repeat(depth)}- ${key}: ${renderValue(value1, depth)}\n${space.repeat(depth)}+ ${key}: ${renderValue(value2, depth)}`;
         case 'ancestor':
           return `${space.repeat(depth)}  ${key}: {\n${iter(children, depth + 2).join('\n')}\n${space.repeat(depth)}${space}}`;
         default:
