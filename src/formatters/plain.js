@@ -24,12 +24,12 @@ const plainFormat = (ast) => {
         case 'ancestor':
           return iter(children, [...accum, key]);
         case 'unchanged':
-          return undefined;
+          return null;
         default:
           throw new Error(`Unknown status: '${status}'!`);
       }
     });
-    return result.filter((item) => item !== undefined).join('\n');
+    return result.filter((item) => item !== null).join('\n');
   };
   return iter(ast, []);
 };
