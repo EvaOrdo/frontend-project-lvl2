@@ -13,6 +13,6 @@ export default (data, extension) => {
     case '.ini':
       return ini.parse(data);
     default:
-      throw new Error(`Unknown format: '${extension}'!`);
+      throw new Error(`Unknown extension: '${extension}'!`);
   }
 };
