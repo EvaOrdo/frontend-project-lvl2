@@ -2,7 +2,7 @@ import recursiveFormat from './stylish.js';
 import plainFormat from './plain.js';
 import jsonFormat from './json.js';
 
-const renderDataInGivenFormat = (tree, format) => {
+const render = (tree, format) => {
   switch (format) {
     case 'json':
       return jsonFormat(tree);
@@ -15,4 +15,4 @@ const renderDataInGivenFormat = (tree, format) => {
   }
 };
 
-export default renderDataInGivenFormat;
+export default render;
